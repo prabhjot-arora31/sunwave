@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --color-sun-50: #fffbeb;
+  --color-sun-100: #fef3c7;
+  --color-sun-200: #fde68a;
+  --color-sun-300: #fcd34d;
+  --color-sun-400: #fbbf24;
+  --color-sun-500: #f59e0b;
+  --color-sun-600: #d97706;
+  --color-sun-700: #b45309;
+  --color-sun-800: #92400e;
+
+  --color-sky-950: #0b1220;
+  --color-sky-900: #0f1b33;
+  --color-sky-800: #142a4d;
+  --color-sky-700: #1c3a66;
+
+  --color-leaf-500: #16a34a;
+  --color-leaf-600: #15803d;
+  --color-leaf-700: #166534;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-sun-50: var(--color-sun-50);
+  --color-sun-100: var(--color-sun-100);
+  --color-sun-200: var(--color-sun-200);
+  --color-sun-300: var(--color-sun-300);
+  --color-sun-400: var(--color-sun-400);
+  --color-sun-500: var(--color-sun-500);
+  --color-sun-600: var(--color-sun-600);
+  --color-sun-700: var(--color-sun-700);
+  --color-sun-800: var(--color-sun-800);
+
+  --color-sky-950: var(--color-sky-950);
+  --color-sky-900: var(--color-sky-900);
+  --color-sky-800: var(--color-sky-800);
+  --color-sky-700: var(--color-sky-700);
+
+  --color-leaf-500: var(--color-leaf-500);
+  --color-leaf-600: var(--color-leaf-600);
+  --color-leaf-700: var(--color-leaf-700);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+html {
+  scroll-behavior: smooth;
+}
