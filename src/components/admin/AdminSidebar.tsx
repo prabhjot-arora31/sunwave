@@ -81,7 +81,7 @@ export default function AdminSidebar() {
         {content}
       </aside>
 
-      <div className="lg:hidden sticky top-0 z-40 flex items-center justify-between bg-sky-950 px-4 py-3">
+      <div className="lg:hidden w-full sticky top-0 z-40 flex items-center justify-between bg-sky-950 px-4 py-3">
         <div className="inline-flex items-center bg-white rounded-lg px-2.5 py-1.5">
           <Image src="/logo.png" alt="Sun Wave" width={395} height={182} className="h-6 w-auto" />
         </div>

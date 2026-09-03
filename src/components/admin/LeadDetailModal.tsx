@@ -20,19 +20,19 @@ export default function LeadDetailModal({ lead, onClose }: { lead: Lead; onClose
         className="w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 sticky top-0 bg-white">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-slate-100 sticky top-0 bg-white">
           <h2 className="text-lg font-bold text-slate-900">{lead.fullName}</h2>
           <button onClick={onClose} className="p-1.5 rounded-full hover:bg-slate-100" aria-label="Close">
             <X className="h-5 w-5 text-slate-500" />
           </button>
         </div>
 
-        <div className="p-6 space-y-6">
+        <div className="p-4 sm:p-6 space-y-6">
           <div>
             <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-3 flex items-center gap-1.5">
               <Phone className="h-3.5 w-3.5" /> Contact
             </h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Field label="Mobile" value={lead.mobile} />
               <Field label="WhatsApp" value={lead.whatsapp} />
               <Field label="Email" value={lead.email} />
@@ -48,7 +48,7 @@ export default function LeadDetailModal({ lead, onClose }: { lead: Lead; onClose
             <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-3 flex items-center gap-1.5">
               <Zap className="h-3.5 w-3.5" /> Solar Requirement
             </h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Field label="Property Type" value={lead.propertyType} />
               <Field label="Preferred Capacity" value={lead.capacity} />
               <Field label="Monthly Bill" value={lead.monthlyBill ? `₹${lead.monthlyBill}` : null} />
@@ -74,7 +74,7 @@ export default function LeadDetailModal({ lead, onClose }: { lead: Lead; onClose
             </div>
           )}
 
-          <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
             <Field label="Source" value={lead.source} />
             <Field
               label="Submitted"
