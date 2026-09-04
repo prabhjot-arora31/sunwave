@@ -38,6 +38,7 @@ export async function GET() {
     bySourceRaw,
     byCapacityRaw,
     trendRows,
+    pendingReviews,
   ] = await Promise.all([
     prisma.lead.count(),
     prisma.lead.count({ where: { createdAt: { gte: todayStart } } }),
@@ -51,6 +52,7 @@ export async function GET() {
       where: { createdAt: { gte: trendStart } },
       select: { createdAt: true },
     }),
+    prisma.review.count({ where: { status: "pending" } }),
   ]);
 
   const trendMap = new Map<string, number>();
@@ -89,5 +91,6 @@ export async function GET() {
       .map((r) => ({ label: r.capacity as string, value: r._count._all }))
       .sort((a, b) => b.value - a.value),
     trend: Array.from(trendMap.entries()).map(([date, count]) => ({ date, count })),
+    pendingReviews,
   });
 }

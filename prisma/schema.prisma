@@ -44,3 +44,36 @@ model Lead {
   @@index([createdAt])
   @@index([status])
 }
+
+model Review {
+  id Int @id @default(autoincrement())
+
+  name       String
+  city       String?
+  rating     Int
+  systemType String?
+  comment    String @db.Text
+
+  // Moderation - only "approved" reviews are shown publicly
+  status String @default("pending")
+
+  source    String   @default("website")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model GalleryItem {
+  id      Int     @id @default(autoincrement())
+  url     String  @db.Text
+  type    String // "photo" | "video"
+  caption String?
+  order   Int     @default(0)
+
+  createdAt DateTime @default(now())
+
+  @@index([type])
+  @@index([order])
+}

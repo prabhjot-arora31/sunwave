@@ -4,11 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import { LayoutDashboard, Users, LogOut, Loader2, Menu, X, ExternalLink } from "lucide-react";
+import { LayoutDashboard, Users, Star, Image as ImageIcon, LogOut, Loader2, Menu, X, ExternalLink } from "lucide-react";
 
 const navItems = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { label: "Leads", href: "/admin/leads", icon: Users },
+  { label: "Reviews", href: "/admin/reviews", icon: Star },
+  { label: "Gallery", href: "/admin/gallery", icon: ImageIcon },
 ];
 
 export default function AdminSidebar() {

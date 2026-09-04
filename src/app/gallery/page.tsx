@@ -5,7 +5,7 @@ import CtaBanner from "@/components/ui/CtaBanner";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import PhotoGrid from "@/components/gallery/PhotoGrid";
-import { getGalleryPhotos, getGalleryVideos } from "@/lib/galleryFiles";
+import { getPublicGallery } from "@/lib/gallery";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -14,9 +14,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/gallery" },
 };
 
-export default function GalleryPage() {
-  const photos = getGalleryPhotos();
-  const videos = getGalleryVideos();
+export default async function GalleryPage() {
+  const { photos, videos } = await getPublicGallery();
 
   return (
     <>

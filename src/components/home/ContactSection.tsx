@@ -42,7 +42,7 @@ export default function ContactSection() {
             <div className="rounded-2xl overflow-hidden border border-slate-100 h-48 bg-slate-200">
               <iframe
                 title="Sun Wave Solar Location"
-                className="w-full h-full grayscale"
+                className="w-full h-full"
                 loading="lazy"
                 src="https://maps.google.com/maps?q=Kabir%20Nagar%2C%20Nari%20Road%2C%20Nagpur%2C%20Maharashtra%20440026&t=&z=14&ie=UTF8&iwloc=&output=embed"
               />

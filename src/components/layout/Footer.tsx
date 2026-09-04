@@ -35,9 +35,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wide mb-4">
+            <h2 className="text-sm font-semibold text-white uppercase tracking-wide mb-4">
               Solutions
-            </h3>
+            </h2>
             <ul className="space-y-2.5 text-sm">
               {footerLinks.quick.map((l) => (
                 <li key={l.href}>
@@ -50,9 +50,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wide mb-4">
+            <h2 className="text-sm font-semibold text-white uppercase tracking-wide mb-4">
               Company
-            </h3>
+            </h2>
             <ul className="space-y-2.5 text-sm">
               {footerLinks.company.map((l) => (
                 <li key={l.href}>
@@ -72,9 +72,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wide mb-4">
+            <h2 className="text-sm font-semibold text-white uppercase tracking-wide mb-4">
               Contact Us
-            </h3>
+            </h2>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-sun-400" />

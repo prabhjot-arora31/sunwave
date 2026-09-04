@@ -40,7 +40,7 @@ function LoginForm() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-sky-950 px-4">
+    <main className="min-h-screen flex items-center justify-center bg-sky-950 px-4">
       <div className="w-full max-w-sm">
         <div className="flex flex-col items-center mb-8">
           <div className="bg-white rounded-xl px-4 py-3 shadow-lg mb-4">
@@ -96,7 +96,7 @@ function LoginForm() {
           </button>
         </form>
       </div>
-    </div>
+    </main>
   );
 }
 

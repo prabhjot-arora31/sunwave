@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Users, CalendarDays, TrendingUp, BarChart3, Loader2, AlertCircle } from "lucide-react";
+import Link from "next/link";
+import { Users, CalendarDays, TrendingUp, BarChart3, Loader2, AlertCircle, Star, ArrowRight } from "lucide-react";
 import StatCard from "@/components/admin/StatCard";
 import TrendChart from "@/components/admin/charts/TrendChart";
 import SimpleBarChart from "@/components/admin/charts/SimpleBarChart";
@@ -15,6 +16,7 @@ type Stats = {
   bySource: { label: string; value: number }[];
   byCapacity: { label: string; value: number }[];
   trend: { date: string; count: number }[];
+  pendingReviews: number;
 };
 
 export default function AdminDashboardPage() {
@@ -61,6 +63,23 @@ export default function AdminDashboardPage() {
         <h1 className="text-2xl font-bold text-slate-900">Dashboard</h1>
         <p className="text-sm text-slate-500 mt-1">Overview of incoming solar leads.</p>
       </div>
+
+      {stats.pendingReviews > 0 && (
+        <Link
+          href="/admin/reviews"
+          className="flex items-center justify-between gap-3 rounded-2xl bg-amber-50 border border-amber-200 px-5 py-4 hover:bg-amber-100 transition-colors"
+        >
+          <div className="flex items-center gap-3">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-700">
+              <Star className="h-4 w-4" />
+            </span>
+            <p className="text-sm font-semibold text-amber-800">
+              {stats.pendingReviews} review{stats.pendingReviews > 1 ? "s" : ""} awaiting moderation
+            </p>
+          </div>
+          <ArrowRight className="h-4 w-4 text-amber-700 shrink-0" />
+        </Link>
+      )}
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard

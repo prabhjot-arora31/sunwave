@@ -25,6 +25,7 @@ export const navLinks = [
   { label: "Subsidy", href: "/subsidy" },
   { label: "Finance", href: "/finance" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Reviews", href: "/reviews" },
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -39,6 +40,7 @@ export const footerLinks = {
   ],
   company: [
     { label: "Gallery", href: "/gallery" },
+    { label: "Reviews", href: "/reviews" },
     { label: "About Us", href: "/about" },
     { label: "Contact Us", href: "/contact" },
   ],

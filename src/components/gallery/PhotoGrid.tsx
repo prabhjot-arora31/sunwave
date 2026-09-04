@@ -3,9 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import type { GalleryItem } from "@/lib/galleryFiles";
+import type { GalleryDisplayItem } from "@/lib/gallery";
 
-export default function PhotoGrid({ photos }: { photos: GalleryItem[] }) {
+export default function PhotoGrid({ photos }: { photos: GalleryDisplayItem[] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const active = activeIndex !== null ? photos[activeIndex] : null;
@@ -52,7 +52,7 @@ export default function PhotoGrid({ photos }: { photos: GalleryItem[] }) {
         >
           <button
             onClick={close}
-            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 text-white hover:bg-white/20"
+            className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 text-white hover:bg-white/20"
             aria-label="Close"
           >
             <X className="h-6 w-6" />
@@ -62,14 +62,14 @@ export default function PhotoGrid({ photos }: { photos: GalleryItem[] }) {
             <>
               <button
                 onClick={showPrev}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/10 text-white hover:bg-white/20"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/10 text-white hover:bg-white/20"
                 aria-label="Previous photo"
               >
                 <ChevronLeft className="h-6 w-6" />
               </button>
               <button
                 onClick={showNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/10 text-white hover:bg-white/20"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/10 text-white hover:bg-white/20"
                 aria-label="Next photo"
               >
                 <ChevronRight className="h-6 w-6" />

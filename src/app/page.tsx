@@ -11,6 +11,11 @@ import Projects from "@/components/home/Projects";
 import FAQ from "@/components/home/FAQ";
 import ContactSection from "@/components/home/ContactSection";
 
+// Testimonials queries the DB for approved reviews - without this the page
+// would be statically frozen at build time and newly approved reviews
+// wouldn't appear until the next deploy.
+export const revalidate = 300;
+
 export default function Home() {
   return (
     <>

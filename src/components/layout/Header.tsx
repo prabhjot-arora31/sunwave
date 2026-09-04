@@ -12,13 +12,13 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 shadow-sm">
-      <Container>
+      <Container className="max-w-[1400px]!">
         <div className="flex items-center justify-between gap-4 py-3.5">
           <Link href="/" className="flex items-center shrink-0" onClick={() => setOpen(false)}>
             <Image src="/logo.png" alt="Sun Wave" width={395} height={182} className="h-9 w-auto" priority />
           </Link>
 
-          <nav className="hidden xl:flex items-center gap-6 min-w-0">
+          <nav className="hidden xl:flex items-center gap-5 min-w-0">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
