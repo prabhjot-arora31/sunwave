@@ -55,15 +55,15 @@ export default function AboutPage() {
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <SectionHeading center={false} eyebrow="Our Story" title="A Decade of Solar Excellence" />
+              <SectionHeading center={false} eyebrow="Our Story" title="Fast-Growing Solar Excellence" />
               <p className="text-slate-600 leading-relaxed mb-4">
                 Sun Wave started with a simple belief - that clean energy shouldn&apos;t be a luxury.
                 What began as a small team of engineers in Nagpur has grown into a
-                pan-India solar EPC company serving residential, commercial and industrial
-                customers across 40+ cities.
+                solar EPC company serving residential, commercial and industrial
+                customers across 10 cities.
               </p>
               <p className="text-slate-600 leading-relaxed">
-                Over the years, we&apos;ve installed more than 150 MW of solar capacity, helped
+                In just a few years, we&apos;ve installed more than 3 MW of solar capacity, helped
                 customers save crores in electricity costs, and built a reputation for
                 transparent pricing and reliable after-sales service.
               </p>

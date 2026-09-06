@@ -8,7 +8,7 @@ export const company = {
   email: "paramjeetbadan806@gmail.com",
   address: "Plot No. 57, Kabir Nagar, Nari Road, Nagpur, Maharashtra - 440026",
   hours: "Mon - Sat, 9:00 AM - 7:00 PM",
-  yearFounded: 2014,
+  yearFounded: 2023,
   socials: {
     facebook: "https://facebook.com",
     instagram: "https://instagram.com",
@@ -52,8 +52,8 @@ export const footerLinks = {
 };
 
 export const stats = [
-  { label: "Years of Experience", value: "10+" },
-  { label: "Happy Customers", value: "10,000+" },
-  { label: "MW Installed Capacity", value: "150+" },
-  { label: "Cities Served", value: "40+" },
+  { label: "Years of Experience", value: "3" },
+  { label: "Happy Customers", value: "700+" },
+  { label: "MW Installed Capacity", value: "3" },
+  { label: "Cities Served", value: "10" },
 ];

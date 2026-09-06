@@ -7,7 +7,7 @@ export default function WhyChooseUs() {
   return (
     <section className="py-20 bg-white">
       <Container>
-        <SectionHeading eyebrow="Why Choose Us" title="Trusted by 10,000+ Customers" />
+        <SectionHeading eyebrow="Why Choose Us" title="Trusted by 700+ Customers" />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
           {whyChooseUs.map((w) => (
             <div key={w.title} className="flex gap-4">

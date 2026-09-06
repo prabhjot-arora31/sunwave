@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 
 export default function EmiCalculator() {
   const [amount, setAmount] = useState(200000);
-  const [rate, setRate] = useState(8.5);
+  const [rate, setRate] = useState(5);
   const [tenure, setTenure] = useState(5);
 
   const emi = useMemo(() => {
@@ -55,7 +55,7 @@ export default function EmiCalculator() {
           <input
             id="rate"
             type="range"
-            min={7}
+            min={5}
             max={15}
             step={0.1}
             value={rate}

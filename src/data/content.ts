@@ -114,7 +114,7 @@ export const financePartners = [
 
 export const financeFeatures = [
   { label: "Loan amount", value: "Up to ₹15,00,000" },
-  { label: "Interest rate", value: "Starting at 7.5% p.a." },
+  { label: "Interest rate", value: "Starting at 5% p.a." },
   { label: "Tenure", value: "Up to 10 years" },
   { label: "Processing", value: "Minimal documentation, 48-hour approval" },
 ];
@@ -141,8 +141,8 @@ export const whyChooseUs = [
     icon: "ShieldCheck",
   },
   {
-    title: "Pan-India Service",
-    description: "Sales, installation and after-sales service across 40+ cities.",
+    title: "Multi-City Service",
+    description: "Sales, installation and after-sales service across 10 cities.",
     icon: "MapPin",
   },
   {
