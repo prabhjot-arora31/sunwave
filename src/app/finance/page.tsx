@@ -17,10 +17,9 @@ export const metadata: Metadata = {
 const documents = [
   "PAN Card & Aadhaar Card",
   "Address proof",
-  "Last 6 months bank statement",
   "Income proof / ITR (last 2 years)",
   "Latest electricity bill",
-  "Passport size photograph",
+  "House tax receipt",
 ];
 
 export default function FinancePage() {

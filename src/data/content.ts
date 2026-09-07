@@ -89,9 +89,9 @@ export const gridTypes = [
 ];
 
 export const subsidySlabs = [
-  { capacity: "Up to 2 kW", subsidy: "₹30,000 per kW" },
-  { capacity: "Above 2 kW up to 3 kW", subsidy: "₹18,000 per kW (additional)" },
-  { capacity: "Above 3 kW", subsidy: "Capped at ₹78,000" },
+  { capacity: "1 kW", subsidy: "₹30,000" },
+  { capacity: "2 kW", subsidy: "₹60,000" },
+  { capacity: "3 kW and above", subsidy: "₹78,000" },
 ];
 
 export const subsidySteps = [
@@ -100,20 +100,18 @@ export const subsidySteps = [
   "Sun Wave installs the rooftop solar plant matched to your sanctioned capacity.",
   "Submit plant details and get the net meter installed by the DISCOM.",
   "After net meter inspection, receive the commissioning certificate.",
-  "Submit bank details on the portal - subsidy is credited directly to your account within 30 days.",
+  "Submit bank details on the portal - subsidy is credited directly to your loan account within 6-7 days.",
 ];
 
 export const financePartners = [
-  "SBI Solar Loan",
-  "HDFC Bank",
+  "Bank of India (BOI)",
+  "Bank of Maharashtra",
+  "Punjab National Bank",
   "Bank of Baroda",
-  "Canara Bank",
-  "Tata Capital",
-  "Bajaj Finserv",
 ];
 
 export const financeFeatures = [
-  { label: "Loan amount", value: "Up to ₹15,00,000" },
+  { label: "Loan amount", value: "Up to ₹5,00,000 - ₹6,00,000" },
   { label: "Interest rate", value: "Starting at 5% p.a." },
   { label: "Tenure", value: "Up to 10 years" },
   { label: "Processing", value: "Minimal documentation, 48-hour approval" },
@@ -136,7 +134,7 @@ export const whyChooseUs = [
     icon: "ClipboardCheck",
   },
   {
-    title: "25 Year Warranty",
+    title: "25-30 Year Warranty",
     description: "Panel performance warranty backed by manufacturer guarantee.",
     icon: "ShieldCheck",
   },
@@ -174,7 +172,7 @@ export const installationProcess = [
   {
     step: 4,
     title: "Installation",
-    description: "Certified technicians install panels, inverter and wiring within 7-15 days.",
+    description: "Certified technicians install panels, inverter and wiring within 2-3 days.",
     icon: "Wrench",
   },
   {
@@ -182,12 +180,6 @@ export const installationProcess = [
     title: "Net Meter & Commissioning",
     description: "We coordinate with the DISCOM for net meter installation and inspection.",
     icon: "Gauge",
-  },
-  {
-    step: 6,
-    title: "Monitoring & AMC",
-    description: "Track generation via our app and opt for annual maintenance plans.",
-    icon: "MonitorSmartphone",
   },
 ];
 
@@ -279,9 +271,8 @@ export const faqs = [
 ];
 
 export const capacityGuide = [
-  { capacity: "1 kW", monthlyUnits: "~120 units", monthlyBill: "₹800 - ₹1,200", roofArea: "80-100 sq.ft.", idealFor: "Small home, 1-2 BHK" },
-  { capacity: "2 kW", monthlyUnits: "~240 units", monthlyBill: "₹1,500 - ₹2,200", roofArea: "160-200 sq.ft.", idealFor: "2-3 BHK home" },
   { capacity: "3 kW", monthlyUnits: "~360 units", monthlyBill: "₹2,200 - ₹3,200", roofArea: "250-300 sq.ft.", idealFor: "3-4 BHK home" },
+  { capacity: "4 kW", monthlyUnits: "~480 units", monthlyBill: "₹3,000 - ₹4,400", roofArea: "320-400 sq.ft.", idealFor: "4-5 BHK home" },
   { capacity: "5 kW", monthlyUnits: "~600 units", monthlyBill: "₹3,800 - ₹5,500", roofArea: "400-500 sq.ft.", idealFor: "Large home / villa" },
   { capacity: "10 kW", monthlyUnits: "~1200 units", monthlyBill: "₹7,500 - ₹11,000", roofArea: "800-1000 sq.ft.", idealFor: "Villa / small business" },
 ];

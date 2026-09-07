@@ -14,7 +14,13 @@ const inputClass =
 
 const labelClass = "block text-sm font-medium text-slate-700 mb-1.5";
 
-export default function LeadForm({ source = "website" }: { source?: string }) {
+export default function LeadForm({
+  source = "website",
+  variant = "full",
+}: {
+  source?: string;
+  variant?: "full" | "quick";
+}) {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -78,9 +84,14 @@ export default function LeadForm({ source = "website" }: { source?: string }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-10">
       <input type="hidden" name="source" value={source} />
+      {variant === "quick" && <input type="hidden" name="propertyType" value="Residential" />}
       <div>
-        <h3 className="text-lg font-bold text-sky-950 mb-1">Basic Details</h3>
-        <p className="text-sm text-slate-500 mb-5">Tell us a little about yourself.</p>
+        {variant === "full" && (
+          <>
+            <h3 className="text-lg font-bold text-sky-950 mb-1">Basic Details</h3>
+            <p className="text-sm text-slate-500 mb-5">Tell us a little about yourself.</p>
+          </>
+        )}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label className={labelClass} htmlFor="fullName">
@@ -94,39 +105,48 @@ export default function LeadForm({ source = "website" }: { source?: string }) {
             </label>
             <input id="mobile" name="mobile" type="tel" required className={inputClass} placeholder="10-digit mobile number" />
           </div>
-          <div>
-            <label className={labelClass} htmlFor="whatsapp">
-              WhatsApp Number
-            </label>
-            <input id="whatsapp" name="whatsapp" type="tel" className={inputClass} placeholder="If different from mobile" />
-          </div>
-          <div>
-            <label className={labelClass} htmlFor="email">
-              Email
-            </label>
-            <input id="email" name="email" type="email" className={inputClass} placeholder="you@example.com" />
-          </div>
+          {variant === "full" && (
+            <>
+              <div>
+                <label className={labelClass} htmlFor="whatsapp">
+                  WhatsApp Number
+                </label>
+                <input id="whatsapp" name="whatsapp" type="tel" className={inputClass} placeholder="If different from mobile" />
+              </div>
+              <div>
+                <label className={labelClass} htmlFor="email">
+                  Email
+                </label>
+                <input id="email" name="email" type="email" className={inputClass} placeholder="you@example.com" />
+              </div>
+            </>
+          )}
           <div className="sm:col-span-2">
             <label className={labelClass} htmlFor="address">
               Address <span className="text-red-500">*</span>
             </label>
             <textarea id="address" name="address" required rows={2} className={inputClass} placeholder="House no., street, area" />
           </div>
-          <div>
-            <label className={labelClass} htmlFor="city">
-              City
-            </label>
-            <input id="city" name="city" type="text" className={inputClass} placeholder="e.g. Nagpur" />
-          </div>
-          <div>
-            <label className={labelClass} htmlFor="pincode">
-              Pincode
-            </label>
-            <input id="pincode" name="pincode" type="text" inputMode="numeric" maxLength={6} className={inputClass} placeholder="e.g. 440026" />
-          </div>
+          {variant === "full" && (
+            <>
+              <div>
+                <label className={labelClass} htmlFor="city">
+                  City
+                </label>
+                <input id="city" name="city" type="text" className={inputClass} placeholder="e.g. Nagpur" />
+              </div>
+              <div>
+                <label className={labelClass} htmlFor="pincode">
+                  Pincode
+                </label>
+                <input id="pincode" name="pincode" type="text" inputMode="numeric" maxLength={6} className={inputClass} placeholder="e.g. 440026" />
+              </div>
+            </>
+          )}
         </div>
       </div>
 
+      {variant === "full" && (
       <div>
         <h3 className="text-lg font-bold text-sky-950 mb-1">Solar Requirement</h3>
         <p className="text-sm text-slate-500 mb-5">
@@ -265,6 +285,7 @@ export default function LeadForm({ source = "website" }: { source?: string }) {
           </div>
         </div>
       </div>
+      )}
 
       {error && (
         <p className="text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-2.5">
@@ -279,7 +300,7 @@ export default function LeadForm({ source = "website" }: { source?: string }) {
           className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-sun-700 px-8 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-sun-800 transition-colors disabled:opacity-70"
         >
           {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
-          {submitting ? "Submitting..." : "Get My Free Quote"}
+          {submitting ? "Submitting..." : variant === "quick" ? "Request a Callback" : "Get My Free Quote"}
         </button>
         <p className="text-xs text-slate-500">
           By submitting, you agree to our{" "}

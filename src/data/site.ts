@@ -19,11 +19,11 @@ export const company = {
 
 export const navLinks = [
   { label: "Home", href: "/" },
+  { label: "Subsidy", href: "/subsidy" },
+  { label: "Finance", href: "/finance" },
   { label: "Solar Products", href: "/solar-products" },
   { label: "Residential", href: "/residential" },
   { label: "Commercial", href: "/commercial" },
-  { label: "Subsidy", href: "/subsidy" },
-  { label: "Finance", href: "/finance" },
   { label: "Gallery", href: "/gallery" },
   { label: "Reviews", href: "/reviews" },
   { label: "About Us", href: "/about" },

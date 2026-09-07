@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import CtaBanner from "@/components/ui/CtaBanner";
@@ -28,6 +29,24 @@ export default function SubsidyPage() {
         title="Solar Subsidy - PM Surya Ghar Yojana"
         description="Get up to ₹78,000 subsidy from the Government of India on your residential rooftop solar system."
       />
+
+      <section className="py-10 bg-white border-b border-slate-100">
+        <Container className="flex flex-col items-center text-center gap-4">
+          <Image
+            src="/assets/pm_surya.png"
+            alt="PM Surya Ghar Yojana"
+            width={160}
+            height={160}
+            className="h-16 w-auto"
+          />
+          <p className="text-2xl sm:text-3xl font-extrabold text-sky-950">
+            Get up to <span className="text-leaf-600">₹78,000</span> Subsidy from the Government
+          </p>
+          <span className="inline-flex items-center rounded-full bg-sun-100 text-sun-700 text-sm font-bold px-5 py-2">
+            0 Down Payment
+          </span>
+        </Container>
+      </section>
 
       <section className="py-20 bg-white">
         <Container className="grid lg:grid-cols-2 gap-12">

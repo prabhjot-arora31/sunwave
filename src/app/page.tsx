@@ -1,4 +1,6 @@
 import Hero from "@/components/home/Hero";
+import QuickContactSection from "@/components/home/QuickContactSection";
+import SavingsCalculator from "@/components/home/SavingsCalculator";
 import Benefits from "@/components/home/Benefits";
 import SolarSegments from "@/components/home/SolarSegments";
 import GridTypes from "@/components/home/GridTypes";
@@ -20,6 +22,8 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <QuickContactSection />
+      <SavingsCalculator />
       <Benefits />
       <SolarSegments />
       <GridTypes />

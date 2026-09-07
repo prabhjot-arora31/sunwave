@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <div className="inline-flex items-center bg-white rounded-lg px-3 py-2 mb-4">
-              <Image src="/logo.png" alt="Sun Wave" width={395} height={182} className="h-8 w-auto" />
+              <Image src="/logo.png" alt="Sun Wave" width={395} height={182} className="h-10 w-auto" />
             </div>
             <p className="text-sm leading-relaxed text-slate-400">
               {company.fullName} helps homes and businesses switch to clean, reliable solar

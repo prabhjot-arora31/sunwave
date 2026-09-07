@@ -38,9 +38,11 @@ export default function SolarProductsPage() {
                   >
                     <h3 className="font-bold text-sky-950 mb-2">{item.name}</h3>
                     <p className="text-sm text-slate-600 mb-3">{item.specs}</p>
-                    <p className="text-xs font-semibold text-leaf-700 bg-leaf-500/10 inline-block rounded-full px-3 py-1">
-                      {item.warranty}
-                    </p>
+                    {item.warranty && (
+                      <p className="text-xs font-semibold text-leaf-700 bg-leaf-500/10 inline-block rounded-full px-3 py-1">
+                        {item.warranty}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>

@@ -17,14 +17,14 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-sun-300 mb-6">
-              MNRE Empanelled Solar Installer
+              Sun Wave Energies - PM Surya Ghar Yojana Affiliated Partner
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
               Switch to Solar &amp;{" "}
               <span className="text-sun-400">Save on Electricity</span>
             </h1>
             <p className="mt-6 text-lg text-slate-300 max-w-xl">
-              Reduce your electricity bill by up to 90% with a rooftop solar system designed
+              Reduce your electricity bill by up to 99% to 100% with a rooftop solar system designed
               for your home, business or industry - with full subsidy and EMI support.
             </p>
 

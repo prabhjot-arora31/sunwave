@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 };
 
 const benefits = [
-  "Save up to 90% on your monthly electricity bill",
+  "Save up to 100% on your monthly electricity bill",
   "Government subsidy up to ₹78,000 on residential systems",
   "Easy EMI starting at low monthly installments",
-  "25-year panel performance warranty",
+  "25-30 year panel performance warranty",
   "Net metering support for on-grid systems",
   "Free site survey and system design",
 ];

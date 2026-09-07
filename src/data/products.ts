@@ -4,19 +4,14 @@ export const productCategories = [
     icon: "PanelTop",
     items: [
       {
-        name: "Mono PERC 545W",
-        specs: "Monocrystalline | 545 Wp | 21.3% efficiency",
-        warranty: "25-year performance warranty",
+        name: "Bifacial",
+        specs: "Bifacial Mono | 540 Wp - 550 Wp | up to 30% bifacial gain",
+        warranty: "25-30 year performance warranty",
       },
       {
-        name: "Bifacial 550W",
-        specs: "Bifacial Mono | 550 Wp | up to 30% bifacial gain",
-        warranty: "25-year performance warranty",
-      },
-      {
-        name: "Polycrystalline 335W",
-        specs: "Polycrystalline | 335 Wp | 17.2% efficiency",
-        warranty: "25-year performance warranty",
+        name: "TOPCon",
+        specs: "TOPCon Mono | 575 Wp - 630 Wp | high-efficiency",
+        warranty: "25-30 year performance warranty",
       },
     ],
   },
@@ -48,12 +43,12 @@ export const productCategories = [
       {
         name: "Lithium (LiFePO4) Battery",
         specs: "2.4 kWh - 10 kWh | 6000+ cycles | Compact wall-mount",
-        warranty: "10-year warranty",
+        warranty: "5-year warranty",
       },
       {
         name: "Tubular Battery Bank",
         specs: "150Ah - 200Ah | Deep cycle | Cost-effective backup",
-        warranty: "3-5 year warranty",
+        warranty: "5-year warranty",
       },
     ],
   },
@@ -62,19 +57,14 @@ export const productCategories = [
     icon: "Layers3",
     items: [
       {
-        name: "RCC Rooftop Structure",
-        specs: "Hot-dip galvanized iron | Wind load up to 150 km/h",
-        warranty: "10-year warranty",
-      },
-      {
         name: "Tin Shed / Metal Roof Structure",
         specs: "Rail-based mounting | Non-penetrating clamps",
-        warranty: "10-year warranty",
+        warranty: "5-year warranty",
       },
       {
         name: "Ground Mount Structure",
         specs: "Galvanized steel | Custom tilt & height",
-        warranty: "10-year warranty",
+        warranty: "5-year warranty",
       },
     ],
   },
@@ -82,9 +72,9 @@ export const productCategories = [
     category: "Accessories",
     icon: "Cable",
     items: [
-      { name: "DC/AC Cables & Connectors", specs: "UV & fire resistant, MC4 connectors", warranty: "2-year warranty" },
+      { name: "DC/AC Cables & Connectors", specs: "UV & fire resistant, MC4 connectors", warranty: "" },
       { name: "Net Meter & Monitoring", specs: "DISCOM approved bi-directional meter", warranty: "As per DISCOM" },
-      { name: "Earthing & Lightning Arrestor", specs: "Complete safety kit for rooftop systems", warranty: "2-year warranty" },
+      { name: "Earthing & Lightning Arrestor", specs: "Complete safety kit for rooftop systems", warranty: "" },
     ],
   },
 ];
