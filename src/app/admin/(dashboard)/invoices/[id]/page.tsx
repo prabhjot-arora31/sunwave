@@ -133,13 +133,11 @@ export default function InvoiceViewPage({ params }: { params: Promise<{ id: stri
       <div className="rounded-2xl bg-white border border-slate-200 shadow-sm print:border-0 print:shadow-none print:rounded-none p-8 sm:p-10">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 pb-6 border-b-2 border-slate-900">
           <div>
-            <div className="inline-flex items-center bg-slate-900 rounded-lg px-3 py-2 mb-3">
-              <Image src="/logo.png" alt={company.name} width={395} height={182} className="h-10 w-auto" />
-            </div>
+            <Image src="/logo.png" alt={company.name} width={395} height={182} className="h-12 w-auto mb-3" />
             <p className="font-bold text-sky-950">{company.fullName}</p>
             <p className="text-xs text-slate-500 max-w-xs mt-0.5">{company.address}</p>
             <p className="text-xs text-slate-500 mt-0.5">{company.phone} · {company.email}</p>
-            <p className="text-xs text-slate-500 mt-0.5">GSTIN: {company.gstin}</p>
+            {company.gstin && <p className="text-xs text-slate-500 mt-0.5">GSTIN: {company.gstin}</p>}
           </div>
           <div className="text-left sm:text-right">
             <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">TAX INVOICE</h1>

@@ -76,16 +76,18 @@ export async function POST(req: NextRequest) {
     const gstAmount = Math.round(((subtotal * data.gstRate) / 100) * 100) / 100;
     const total = Math.round((subtotal + gstAmount) * 100) / 100;
 
-    // Sequential per-year numbering: SW<index><2-digit year>, e.g. SW0126 = 1st
-    // invoice of 2026. Not fully race-safe under concurrent creates, but this
-    // is a single-admin tool with low write volume, so a unique constraint on
+    // SW<index><2-digit month><2-digit year>, index resets every calendar
+    // month, e.g. SW010926 = 1st invoice of Sep 2026, SW011026 = 1st of Oct.
+    // Not fully race-safe under concurrent creates, but this is a
+    // single-admin tool with low write volume, so a unique constraint on
     // invoiceNumber (which would surface as a 500 to retry) is an acceptable
     // safety net rather than adding a dedicated counter/lock.
-    const yearShort = String(new Date().getFullYear()).slice(-2);
-    const countThisYear = await prisma.invoice.count({
-      where: { invoiceNumber: { endsWith: yearShort } },
+    const now = new Date();
+    const monthYear = `${String(now.getMonth() + 1).padStart(2, "0")}${String(now.getFullYear()).slice(-2)}`;
+    const countThisMonth = await prisma.invoice.count({
+      where: { invoiceNumber: { endsWith: monthYear } },
     });
-    const invoiceNumber = `SW${String(countThisYear + 1).padStart(2, "0")}${yearShort}`;
+    const invoiceNumber = `SW${String(countThisMonth + 1).padStart(2, "0")}${monthYear}`;
 
     const invoice = await prisma.invoice.create({
       data: {
