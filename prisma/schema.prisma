@@ -43,6 +43,39 @@ model Lead {
 
   @@index([createdAt])
   @@index([status])
+
+  invoices Invoice[]
+}
+
+model Invoice {
+  id Int @id @default(autoincrement())
+
+  invoiceNumber String @unique
+
+  leadId Int?
+  lead   Lead? @relation(fields: [leadId], references: [id])
+
+  customerName    String
+  customerPhone   String
+  customerAddress String  @db.Text
+  customerEmail   String?
+
+  // Array of { description, quantity, rate, amount }
+  items Json
+
+  subtotal  Float
+  gstRate   Float @default(5)
+  gstAmount Float
+  total     Float
+
+  status      String   @default("Pending")
+  invoiceDate DateTime @default(now())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([invoiceDate])
+  @@index([status])
 }
 
 model Review {

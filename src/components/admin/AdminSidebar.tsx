@@ -4,11 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import { LayoutDashboard, Users, Star, Image as ImageIcon, LogOut, Loader2, Menu, X, ExternalLink } from "lucide-react";
+import { LayoutDashboard, Users, Star, Image as ImageIcon, Receipt, LogOut, Loader2, Menu, X, ExternalLink } from "lucide-react";
 
 const navItems = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { label: "Leads", href: "/admin/leads", icon: Users },
+  { label: "Invoices", href: "/admin/invoices", icon: Receipt },
   { label: "Reviews", href: "/admin/reviews", icon: Star },
   { label: "Gallery", href: "/admin/gallery", icon: ImageIcon },
 ];
@@ -37,7 +38,7 @@ export default function AdminSidebar() {
 
       <nav className="flex-1 px-3 space-y-1">
         {navItems.map((item) => {
-          const active = pathname === item.href;
+          const active = item.href === "/admin" ? pathname === item.href : pathname.startsWith(item.href);
           return (
             <Link
               key={item.href}
@@ -79,11 +80,11 @@ export default function AdminSidebar() {
 
   return (
     <>
-      <aside className="hidden lg:flex lg:flex-col w-60 shrink-0 bg-sky-950 min-h-screen sticky top-0">
+      <aside className="hidden lg:flex lg:flex-col w-60 shrink-0 bg-sky-950 min-h-screen sticky top-0 print:hidden">
         {content}
       </aside>
 
-      <div className="lg:hidden w-full sticky top-0 z-40 flex items-center justify-between bg-sky-950 px-4 py-3">
+      <div className="lg:hidden w-full sticky top-0 z-40 flex items-center justify-between bg-sky-950 px-4 py-3 print:hidden">
         <div className="inline-flex items-center bg-white rounded-lg px-2.5 py-1.5">
           <Image src="/logo.png" alt="Sun Wave" width={395} height={182} className="h-6 w-auto" />
         </div>
@@ -92,7 +93,7 @@ export default function AdminSidebar() {
         </button>
       </div>
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 z-30 bg-sky-950 flex flex-col pt-14">{content}</div>
+        <div className="lg:hidden fixed inset-0 z-30 bg-sky-950 flex flex-col pt-14 print:hidden">{content}</div>
       )}
     </>
   );

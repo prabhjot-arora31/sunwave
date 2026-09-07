@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { Lead } from "@prisma/client";
-import { Search, Loader2, Eye, Trash2, ChevronLeft, ChevronRight, AlertCircle } from "lucide-react";
+import { Search, Loader2, Eye, Trash2, ChevronLeft, ChevronRight, AlertCircle, Download } from "lucide-react";
 import LeadDetailModal from "@/components/admin/LeadDetailModal";
 import ConfirmDialog from "@/components/admin/ConfirmDialog";
 import { LEAD_STATUSES, LEAD_STATUS_LABELS, LEAD_STATUS_COLORS, type LeadStatus } from "@/lib/leadStatus";
@@ -25,6 +25,9 @@ export default function AdminLeadsPage() {
   const [status, setStatus] = useState("");
   const [propertyType, setPropertyType] = useState("");
   const [page, setPage] = useState(1);
+  const [showExport, setShowExport] = useState(false);
+  const [exportFrom, setExportFrom] = useState("");
+  const [exportTo, setExportTo] = useState("");
 
   // Reset to page 1 whenever a filter changes, computed during render
   // (React's documented pattern for "adjusting state when a prop changes")
@@ -115,14 +118,61 @@ export default function AdminLeadsPage() {
     }
   }
 
+  function handleExport() {
+    const params = new URLSearchParams();
+    if (status) params.set("status", status);
+    if (propertyType) params.set("propertyType", propertyType);
+    if (exportFrom) params.set("from", exportFrom);
+    if (exportTo) params.set("to", exportTo);
+    window.location.href = `/api/admin/leads/export?${params.toString()}`;
+  }
+
   return (
     <div className="space-y-5">
-      <div>
-        <h1 className="text-2xl font-bold text-slate-900">Leads</h1>
-        <p className="text-sm text-slate-500 mt-1">
-          {pagination ? `${pagination.total} total submissions` : "Loading..."}
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <h1 className="text-2xl font-bold text-slate-900">Leads</h1>
+          <p className="text-sm text-slate-500 mt-1">
+            {pagination ? `${pagination.total} total submissions` : "Loading..."}
+          </p>
+        </div>
+        <button
+          onClick={() => setShowExport((v) => !v)}
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+        >
+          <Download className="h-4 w-4" /> Export CSV
+        </button>
       </div>
+
+      {showExport && (
+        <div className="rounded-2xl bg-white border border-slate-200 p-4 flex flex-col sm:flex-row sm:items-end gap-3">
+          <div className="flex-1">
+            <label className="block text-xs font-medium text-slate-500 mb-1.5">From</label>
+            <input
+              type="date"
+              value={exportFrom}
+              onChange={(e) => setExportFrom(e.target.value)}
+              className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm focus:border-sun-500 focus:outline-none focus:ring-2 focus:ring-sun-500/30"
+            />
+          </div>
+          <div className="flex-1">
+            <label className="block text-xs font-medium text-slate-500 mb-1.5">To</label>
+            <input
+              type="date"
+              value={exportTo}
+              onChange={(e) => setExportTo(e.target.value)}
+              className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm focus:border-sun-500 focus:outline-none focus:ring-2 focus:ring-sun-500/30"
+            />
+          </div>
+          <p className="text-xs text-slate-400 sm:mb-3">Leave blank to export all leads. Uses the status/property filters below too.</p>
+          <button
+            onClick={handleExport}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-sun-700 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-sun-800 transition-colors whitespace-nowrap"
+          >
+            <Download className="h-4 w-4" /> Download CSV
+          </button>
+        </div>
+      )}
 
       <div className="rounded-2xl bg-white border border-slate-200 p-4 flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1">

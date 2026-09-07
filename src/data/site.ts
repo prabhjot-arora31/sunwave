@@ -9,6 +9,7 @@ export const company = {
   address: "Plot No. 57, Kabir Nagar, Nari Road, Nagpur, Maharashtra - 440026",
   hours: "Mon - Sat, 9:00 AM - 7:00 PM",
   yearFounded: 2023,
+  gstin: "GSTIN NOT SET - add in src/data/site.ts",
   socials: {
     facebook: "https://facebook.com",
     instagram: "https://instagram.com",
