@@ -5,7 +5,7 @@ import CtaBanner from "@/components/ui/CtaBanner";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import EmiCalculator from "@/components/finance/EmiCalculator";
-import { financeFeatures, financePartners } from "@/data/content";
+import { getSiteSettings } from "@/lib/siteSettings";
 
 export const metadata: Metadata = {
   title: "Solar Finance & EMI",
@@ -22,7 +22,16 @@ const documents = [
   "House tax receipt",
 ];
 
-export default function FinancePage() {
+export default async function FinancePage() {
+  const settings = await getSiteSettings();
+  const financeFeatures = [
+    { label: "Loan amount", value: settings.loanAmount },
+    { label: "Interest rate", value: settings.interestRate },
+    { label: "Tenure", value: settings.loanTenure },
+    { label: "Processing", value: settings.loanProcessing },
+  ];
+  const financePartners = settings.financePartners;
+
   return (
     <>
       <PageHero

@@ -3,15 +3,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
-import { LayoutDashboard, Users, Star, Image as ImageIcon, Receipt, LogOut, Loader2, Menu, X, ExternalLink } from "lucide-react";
+import { useEffect, useState } from "react";
+import { LayoutDashboard, Users, Contact, Star, Image as ImageIcon, Receipt, HardHat, Settings, ShieldCheck, LogOut, Loader2, Menu, X, ExternalLink } from "lucide-react";
+import type { PermissionKey, PermissionMap } from "@/lib/permissions";
 
-const navItems = [
-  { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
-  { label: "Leads", href: "/admin/leads", icon: Users },
-  { label: "Invoices", href: "/admin/invoices", icon: Receipt },
-  { label: "Reviews", href: "/admin/reviews", icon: Star },
-  { label: "Gallery", href: "/admin/gallery", icon: ImageIcon },
+const navItems: { label: string; href: string; icon: typeof LayoutDashboard; requires: PermissionKey | null }[] = [
+  { label: "Dashboard", href: "/admin", icon: LayoutDashboard, requires: null },
+  { label: "Leads", href: "/admin/leads", icon: Users, requires: "leads.view" },
+  { label: "Customers", href: "/admin/customers", icon: Contact, requires: "customers.view" },
+  { label: "Projects", href: "/admin/projects", icon: HardHat, requires: "projects.view" },
+  { label: "Invoices", href: "/admin/invoices", icon: Receipt, requires: "invoices.view" },
+  { label: "Reviews", href: "/admin/reviews", icon: Star, requires: "reviews.manage" },
+  { label: "Gallery", href: "/admin/gallery", icon: ImageIcon, requires: "gallery.manage" },
+  { label: "Settings", href: "/admin/settings", icon: Settings, requires: "settings.manage" },
+  { label: "Admin Users", href: "/admin/users", icon: ShieldCheck, requires: "users.manage" },
 ];
 
 export default function AdminSidebar() {
@@ -19,6 +24,16 @@ export default function AdminSidebar() {
   const router = useRouter();
   const [loggingOut, setLoggingOut] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [me, setMe] = useState<{ username: string; roleName: string; permissions: PermissionMap } | null>(null);
+
+  useEffect(() => {
+    fetch("/api/admin/me")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => setMe(data))
+      .catch(() => setMe(null));
+  }, []);
+
+  const visibleNavItems = navItems.filter((item) => !item.requires || me?.permissions[item.requires]);
 
   async function handleLogout() {
     setLoggingOut(true);
@@ -33,11 +48,13 @@ export default function AdminSidebar() {
         <div className="inline-flex items-center bg-white rounded-lg px-2.5 py-1.5 mb-1.5">
           <Image src="/logo.png" alt="Sun Wave" width={395} height={182} className="h-7 w-auto" />
         </div>
-        <p className="text-xs text-slate-400 leading-tight">Admin Panel</p>
+        <p className="text-xs text-slate-400 leading-tight">
+          {me ? `${me.username} · ${me.roleName}` : "Admin Panel"}
+        </p>
       </div>
 
       <nav className="flex-1 px-3 space-y-1">
-        {navItems.map((item) => {
+        {visibleNavItems.map((item) => {
           const active = item.href === "/admin" ? pathname === item.href : pathname.startsWith(item.href);
           return (
             <Link

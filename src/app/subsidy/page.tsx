@@ -5,7 +5,8 @@ import PageHero from "@/components/ui/PageHero";
 import CtaBanner from "@/components/ui/CtaBanner";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { subsidySlabs, subsidySteps } from "@/data/content";
+import { subsidySteps } from "@/data/content";
+import { getSiteSettings } from "@/lib/siteSettings";
 
 export const metadata: Metadata = {
   title: "Solar Subsidy",
@@ -21,7 +22,9 @@ const eligibility = [
   "The installation must be carried out by an empanelled vendor such as Sun Wave.",
 ];
 
-export default function SubsidyPage() {
+export default async function SubsidyPage() {
+  const { subsidySlabs } = await getSiteSettings();
+
   return (
     <>
       <PageHero

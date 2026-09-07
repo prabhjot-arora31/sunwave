@@ -7,6 +7,7 @@ import Link from "next/link";
 import type { Invoice } from "@prisma/client";
 import { ArrowLeft, Printer, Trash2, Loader2, AlertCircle } from "lucide-react";
 import ConfirmDialog from "@/components/admin/ConfirmDialog";
+import PaymentsPanel from "@/components/admin/PaymentsPanel";
 import { INVOICE_STATUSES, INVOICE_STATUS_COLORS, type InvoiceStatus } from "@/lib/invoiceStatus";
 import { company } from "@/data/site";
 
@@ -219,6 +220,16 @@ export default function InvoiceViewPage({ params }: { params: Promise<{ id: stri
           Thank you for choosing {company.name}!
         </p>
       </div>
+
+      <PaymentsPanel
+        invoiceId={invoice.id}
+        total={invoice.total}
+        onStatusChange={() => {
+          fetch(`/api/admin/invoices/${invoice.id}`)
+            .then((res) => res.json())
+            .then((data) => setInvoice(data.invoice));
+        }}
+      />
 
       <ConfirmDialog
         open={confirmDelete}

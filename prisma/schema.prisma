@@ -44,7 +44,73 @@ model Lead {
   @@index([createdAt])
   @@index([status])
 
-  invoices Invoice[]
+  invoices  Invoice[]
+  projects  Project[]
+  customer  Customer?
+}
+
+model Project {
+  id Int @id @default(autoincrement())
+
+  leadId Int?
+  lead   Lead? @relation(fields: [leadId], references: [id])
+
+  customerName    String
+  customerPhone   String
+  customerAddress String @db.Text
+
+  capacity String
+  stage    String @default("Site Survey")
+
+  installDate         DateTime?
+  commissioningDate   DateTime?
+  subsidyCreditedDate DateTime?
+
+  notes String? @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([stage])
+  @@index([createdAt])
+}
+
+// A Customer is any real person/business we've saved details for - either
+// auto-created the first time a document is attached to a lead (so the
+// existing "add documents on the lead" flow keeps working unchanged), or
+// created directly for a walk-in who never submitted the public inquiry
+// form. leadId is optional and unique: at most one Customer per Lead, but a
+// Customer need not have come from a Lead at all.
+model Customer {
+  id Int @id @default(autoincrement())
+
+  fullName String
+  phone    String
+  address  String  @db.Text
+  email    String?
+  notes    String? @db.Text
+
+  leadId Int?  @unique
+  lead   Lead? @relation(fields: [leadId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  documents CustomerDocument[]
+}
+
+model CustomerDocument {
+  id         Int      @id @default(autoincrement())
+  customerId Int
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  label    String
+  url      String @db.Text
+  fileName String
+
+  createdAt DateTime @default(now())
+
+  @@index([customerId])
 }
 
 model Invoice {
@@ -74,8 +140,75 @@ model Invoice {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  payments Payment[]
+
   @@index([invoiceDate])
   @@index([status])
+}
+
+model Payment {
+  id        Int     @id @default(autoincrement())
+  invoiceId Int
+  invoice   Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  amount Float
+  method String
+  paidOn DateTime @default(now())
+  notes  String?
+
+  createdAt DateTime @default(now())
+
+  @@index([invoiceId])
+}
+
+model AdminUser {
+  id           Int    @id @default(autoincrement())
+  username     String @unique
+  passwordHash String
+
+  roleId Int
+  role   Role @relation(fields: [roleId], references: [id])
+
+  createdAt DateTime @default(now())
+}
+
+model Role {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  // Flat map of permission key -> boolean, e.g. { "leads.view": true, ... }.
+  // See src/lib/permissions.ts for the authoritative key list.
+  permissions Json
+
+  // The built-in "Owner" role: always full access, can't be edited or
+  // deleted, guarantees there's always at least one fully-privileged role.
+  isSystem Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  adminUsers AdminUser[]
+}
+
+// Singleton row (id is always 1) holding the site's frequently-edited
+// marketing figures, so an admin can update them without a code deploy.
+model SiteSettings {
+  id Int @id @default(1)
+
+  yearsExperience String
+  happyCustomers  String
+  mwCapacity      String
+  citiesServed    String
+
+  loanAmount    String
+  interestRate  String
+  loanTenure    String
+  loanProcessing String
+
+  financePartners Json
+  subsidySlabs    Json
+
+  updatedAt DateTime @updatedAt
 }
 
 model Review {

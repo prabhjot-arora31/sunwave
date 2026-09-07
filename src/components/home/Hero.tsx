@@ -1,9 +1,17 @@
 import Link from "next/link";
 import { Phone, ArrowRight, CheckCircle2 } from "lucide-react";
 import Container from "@/components/ui/Container";
-import { stats } from "@/data/site";
+import { getSiteSettings } from "@/lib/siteSettings";
 
-export default function Hero() {
+export default async function Hero() {
+  const settings = await getSiteSettings();
+  const stats = [
+    { label: "Years of Experience", value: settings.yearsExperience },
+    { label: "Happy Customers", value: settings.happyCustomers },
+    { label: "MW Installed Capacity", value: settings.mwCapacity },
+    { label: "Cities Served", value: settings.citiesServed },
+  ];
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-sky-950 via-sky-900 to-sky-950">
       <div

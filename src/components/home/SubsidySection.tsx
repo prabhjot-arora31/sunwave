@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Container from "@/components/ui/Container";
-import { subsidySlabs } from "@/data/content";
+import { getSiteSettings } from "@/lib/siteSettings";
 
-export default function SubsidySection() {
+export default async function SubsidySection() {
+  const { subsidySlabs } = await getSiteSettings();
+
   return (
     <section className="py-20 bg-sky-950 relative overflow-hidden">
       <div

@@ -2,6 +2,7 @@
 
 import type { Lead } from "@prisma/client";
 import { X, Phone, Home, Zap } from "lucide-react";
+import DocumentsPanel from "@/components/admin/DocumentsPanel";
 
 function Field({ label, value }: { label: string; value?: string | number | null }) {
   if (value === null || value === undefined || value === "") return null;
@@ -73,6 +74,11 @@ export default function LeadDetailModal({ lead, onClose }: { lead: Lead; onClose
               <p className="text-sm text-slate-700 bg-slate-50 rounded-lg p-3.5">{lead.message}</p>
             </div>
           )}
+
+          <DocumentsPanel
+            documentsPath={`/api/admin/leads/${lead.id}/documents`}
+            uploadUrl="/api/admin/leads/documents/upload"
+          />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
             <Field label="Source" value={lead.source} />

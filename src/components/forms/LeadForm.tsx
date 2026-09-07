@@ -17,9 +17,11 @@ const labelClass = "block text-sm font-medium text-slate-700 mb-1.5";
 export default function LeadForm({
   source = "website",
   variant = "full",
+  onSuccess,
 }: {
   source?: string;
   variant?: "full" | "quick";
+  onSuccess?: () => void;
 }) {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -59,6 +61,7 @@ export default function LeadForm({
       }
 
       setSubmitted(true);
+      onSuccess?.();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {

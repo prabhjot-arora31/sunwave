@@ -4,7 +4,8 @@ import PageHero from "@/components/ui/PageHero";
 import CtaBanner from "@/components/ui/CtaBanner";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { company, stats } from "@/data/site";
+import { company } from "@/data/site";
+import { getSiteSettings } from "@/lib/siteSettings";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -42,7 +43,15 @@ const team = [
   { name: "Simran Kaur", role: "Customer Success Lead" },
 ];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const settings = await getSiteSettings();
+  const stats = [
+    { label: "Years of Experience", value: settings.yearsExperience },
+    { label: "Happy Customers", value: settings.happyCustomers },
+    { label: "MW Installed Capacity", value: settings.mwCapacity },
+    { label: "Cities Served", value: settings.citiesServed },
+  ];
+
   return (
     <>
       <PageHero
@@ -60,10 +69,10 @@ export default function AboutPage() {
                 Sun Wave started with a simple belief - that clean energy shouldn&apos;t be a luxury.
                 What began as a small team of engineers in Nagpur has grown into a
                 solar EPC company serving residential, commercial and industrial
-                customers across 10 cities.
+                customers across {settings.citiesServed} cities.
               </p>
               <p className="text-slate-600 leading-relaxed">
-                In just a few years, we&apos;ve installed more than 3 MW of solar capacity, helped
+                In just a few years, we&apos;ve installed more than {settings.mwCapacity} MW of solar capacity, helped
                 customers save crores in electricity costs, and built a reputation for
                 transparent pricing and reliable after-sales service.
               </p>

@@ -88,12 +88,6 @@ export const gridTypes = [
   },
 ];
 
-export const subsidySlabs = [
-  { capacity: "1 kW", subsidy: "₹30,000" },
-  { capacity: "2 kW", subsidy: "₹60,000" },
-  { capacity: "3 kW and above", subsidy: "₹78,000" },
-];
-
 export const subsidySteps = [
   "Register on the PM Surya Ghar Muft Bijli Yojana portal with your electricity consumer number.",
   "Get a feasibility approval from your DISCOM (electricity distribution company).",
@@ -101,20 +95,6 @@ export const subsidySteps = [
   "Submit plant details and get the net meter installed by the DISCOM.",
   "After net meter inspection, receive the commissioning certificate.",
   "Submit bank details on the portal - subsidy is credited directly to your loan account within 6-7 days.",
-];
-
-export const financePartners = [
-  "Bank of India (BOI)",
-  "Bank of Maharashtra",
-  "Punjab National Bank",
-  "Bank of Baroda",
-];
-
-export const financeFeatures = [
-  { label: "Loan amount", value: "Up to ₹5,00,000 - ₹6,00,000" },
-  { label: "Interest rate", value: "Starting at 5% p.a." },
-  { label: "Tenure", value: "Up to 10 years" },
-  { label: "Processing", value: "Minimal documentation, 48-hour approval" },
 ];
 
 export const whyChooseUs = [

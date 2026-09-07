@@ -2,9 +2,18 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { financeFeatures, financePartners } from "@/data/content";
+import { getSiteSettings } from "@/lib/siteSettings";
 
-export default function FinanceSection() {
+export default async function FinanceSection() {
+  const settings = await getSiteSettings();
+  const financeFeatures = [
+    { label: "Loan amount", value: settings.loanAmount },
+    { label: "Interest rate", value: settings.interestRate },
+    { label: "Tenure", value: settings.loanTenure },
+    { label: "Processing", value: settings.loanProcessing },
+  ];
+  const financePartners = settings.financePartners;
+
   return (
     <section className="py-20 bg-slate-50">
       <Container>

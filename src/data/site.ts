@@ -52,9 +52,3 @@ export const footerLinks = {
   ],
 };
 
-export const stats = [
-  { label: "Years of Experience", value: "3" },
-  { label: "Happy Customers", value: "700+" },
-  { label: "MW Installed Capacity", value: "3" },
-  { label: "Cities Served", value: "10" },
-];
