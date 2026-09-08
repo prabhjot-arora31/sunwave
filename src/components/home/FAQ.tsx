@@ -11,13 +11,13 @@ export default function FAQ() {
 
   return (
     <section className="py-20 bg-white">
-      <Container className="max-w-3xl!">
+      <Container>
         <SectionHeading
           eyebrow="FAQs"
           title="Frequently Asked Questions"
           description="Answers to the questions we hear most often from customers."
         />
-        <div className="space-y-3">
+        <div className="grid sm:grid-cols-2 gap-4 items-start">
           {faqs.map((f, i) => {
             const isOpen = openIndex === i;
             return (

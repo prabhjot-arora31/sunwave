@@ -20,13 +20,13 @@ export default function CtaBanner({
         <div className="flex flex-col sm:flex-row gap-3 shrink-0">
           <Link
             href="/contact#quote-form"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-sky-950 px-6 py-3 text-sm font-semibold text-white hover:bg-sky-900 transition-colors"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-sky-950 px-6 py-3 text-sm font-semibold text-white hover:bg-sky-900 hover:-translate-y-0.5 hover:shadow-lg transition-all"
           >
             Get Free Quote <ArrowRight className="h-4 w-4" />
           </Link>
           <a
             href={`tel:${company.phone.replace(/\s/g, "")}`}
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-sky-950 hover:bg-slate-100 transition-colors"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-sky-950 hover:bg-slate-100 hover:-translate-y-0.5 hover:shadow-lg transition-all"
           >
             <Phone className="h-4 w-4" /> {company.phoneDisplay}
           </a>

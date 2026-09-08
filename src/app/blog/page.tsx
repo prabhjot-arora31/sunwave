@@ -38,7 +38,7 @@ export default async function BlogIndexPage() {
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group rounded-2xl overflow-hidden border border-slate-100 bg-white hover:shadow-lg hover:border-sun-200 transition-all"
+                  className="group rounded-2xl overflow-hidden border border-slate-100 bg-white hover:shadow-lg hover:border-sun-200 hover:-translate-y-1 transition-all"
                 >
                   <div className="aspect-16/9 bg-slate-100 relative overflow-hidden">
                     {post.coverImage ? (

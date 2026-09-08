@@ -300,7 +300,7 @@ export default function LeadForm({
         <button
           type="submit"
           disabled={submitting}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-sun-700 px-8 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-sun-800 transition-colors disabled:opacity-70"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-sun-700 px-8 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-sun-800 hover:-translate-y-0.5 hover:shadow-lg transition-all disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-md"
         >
           {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
           {submitting ? "Submitting..." : variant === "quick" ? "Request a Callback" : "Get My Free Quote"}

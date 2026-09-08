@@ -34,7 +34,7 @@ export default function SolarProductsPage() {
                 {cat.items.map((item) => (
                   <div
                     key={item.name}
-                    className="rounded-2xl border border-slate-100 bg-slate-50/60 p-6 hover:shadow-lg hover:border-sun-200 transition-all"
+                    className="rounded-2xl border border-slate-100 bg-slate-50/60 p-6 hover:shadow-lg hover:border-sun-200 hover:-translate-y-1 transition-all"
                   >
                     <h3 className="font-bold text-sky-950 mb-2">{item.name}</h3>
                     <p className="text-sm text-slate-600 mb-3">{item.specs}</p>

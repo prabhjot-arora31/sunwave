@@ -12,6 +12,7 @@ import Testimonials from "@/components/home/Testimonials";
 import Projects from "@/components/home/Projects";
 import FAQ from "@/components/home/FAQ";
 import ContactSection from "@/components/home/ContactSection";
+import Reveal from "@/components/ui/Reveal";
 
 // Testimonials queries the DB for approved reviews - without this the page
 // would be statically frozen at build time and newly approved reviews
@@ -22,19 +23,19 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <QuickContactSection />
-      <SavingsCalculator />
-      <Benefits />
-      <SolarSegments />
-      <GridTypes />
-      <SubsidySection />
-      <FinanceSection />
-      <WhyChooseUs />
-      <InstallationProcess />
-      <Testimonials />
-      <Projects />
-      <FAQ />
-      <ContactSection />
+      <Reveal><QuickContactSection /></Reveal>
+      <Reveal><SubsidySection /></Reveal>
+      <Reveal><SavingsCalculator /></Reveal>
+      <Reveal><Benefits /></Reveal>
+      <Reveal><SolarSegments /></Reveal>
+      <Reveal><GridTypes /></Reveal>
+      <Reveal><FinanceSection /></Reveal>
+      <Reveal><WhyChooseUs /></Reveal>
+      <Reveal><InstallationProcess /></Reveal>
+      <Reveal><Testimonials /></Reveal>
+      <Reveal><Projects /></Reveal>
+      <Reveal><FAQ /></Reveal>
+      <Reveal><ContactSection /></Reveal>
     </>
   );
 }

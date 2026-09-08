@@ -16,7 +16,7 @@ export default function Benefits() {
           {benefits.map((b) => (
             <div
               key={b.title}
-              className="rounded-2xl border border-slate-100 bg-slate-50/60 p-6 hover:shadow-lg hover:border-sun-200 transition-all"
+              className="rounded-2xl border border-slate-100 bg-slate-50/60 p-6 hover:shadow-lg hover:border-sun-200 hover:-translate-y-1 transition-all"
             >
               <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-sun-500/10 text-sun-600 mb-4">
                 <DynamicIcon name={b.icon} />

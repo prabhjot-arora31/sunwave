@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Phone, ArrowRight, CheckCircle2 } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { getSiteSettings } from "@/lib/siteSettings";
+import { company } from "@/data/site";
 
 export default async function Hero() {
   const settings = await getSiteSettings();
@@ -48,20 +49,20 @@ export default async function Hero() {
             <div className="mt-9 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact#quote-form"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-sun-700 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-sun-500/20 hover:bg-sun-800 transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-sun-700 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-sun-500/20 hover:bg-sun-800 hover:-translate-y-0.5 hover:shadow-xl transition-all"
               >
                 Get Free Consultation
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/contact#quote-form"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 border border-white/20 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 border border-white/20 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/20 hover:-translate-y-0.5 transition-all"
               >
                 Get Free Quote
               </Link>
               <a
-                href="tel:+919876543210"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                href={`tel:${company.phone.replace(/\s/g, "")}`}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/10 hover:-translate-y-0.5 transition-all"
               >
                 <Phone className="h-4 w-4" />
                 Call Now

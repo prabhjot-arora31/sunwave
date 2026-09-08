@@ -20,7 +20,10 @@ export default function Projects() {
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p) => (
-            <div key={p.title} className="rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm">
+            <div
+              key={p.title}
+              className="rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
+            >
               <div className="h-40 bg-gradient-to-br from-sky-900 to-sky-700 flex items-center justify-center">
                 <Zap className="h-10 w-10 text-sun-400/70" />
               </div>

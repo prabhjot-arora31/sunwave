@@ -18,16 +18,38 @@ export const company = {
   },
 };
 
-export const navLinks = [
+type NavLink = { label: string; href: string };
+type NavGroup = NavLink | { label: string; items: NavLink[] };
+
+// Each entry is either a single link (has `href`) or a dropdown group (has
+// `items`) - the header renders the two shapes differently (plain link vs
+// hover dropdown), grouping what used to be 11 flat items into a much less
+// cramped 6 top-level slots.
+export const navGroups: NavGroup[] = [
   { label: "Home", href: "/" },
-  { label: "Subsidy", href: "/subsidy" },
-  { label: "Finance", href: "/finance" },
-  { label: "Solar Products", href: "/solar-products" },
-  { label: "Residential", href: "/residential" },
-  { label: "Commercial", href: "/commercial" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Blog", href: "/blog" },
-  { label: "Reviews", href: "/reviews" },
+  {
+    label: "Solutions",
+    items: [
+      { label: "Solar Products", href: "/solar-products" },
+      { label: "Residential", href: "/residential" },
+      { label: "Commercial", href: "/commercial" },
+    ],
+  },
+  {
+    label: "Financing",
+    items: [
+      { label: "Subsidy", href: "/subsidy" },
+      { label: "Finance", href: "/finance" },
+    ],
+  },
+  {
+    label: "Resources",
+    items: [
+      { label: "Gallery", href: "/gallery" },
+      { label: "Blog", href: "/blog" },
+      { label: "Reviews", href: "/reviews" },
+    ],
+  },
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
