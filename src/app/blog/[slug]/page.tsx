@@ -48,8 +48,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     headline: post.title,
     description: post.excerpt,
     image: post.coverImage ? [post.coverImage] : undefined,
-    datePublished: post.publishedAt?.toISOString(),
-    dateModified: post.updatedAt.toISOString(),
+    // unstable_cache round-trips its result through JSON, which silently
+    // turns Date objects into plain strings in a real production build (Next
+    // dev mode doesn't do this, which is why this only broke once deployed).
+    // new Date(x) normalizes either shape back to a real Date safely.
+    datePublished: post.publishedAt ? new Date(post.publishedAt).toISOString() : undefined,
+    dateModified: new Date(post.updatedAt).toISOString(),
     author: { "@type": "Organization", name: company.fullName },
     publisher: { "@type": "Organization", name: company.fullName },
     mainEntityOfPage: `${siteUrl}/blog/${post.slug}`,
