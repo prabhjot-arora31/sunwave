@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { upload } from "@vercel/blob/client";
 import Image from "next/image";
 import type { BlogPost } from "@prisma/client";
-import { Loader2, UploadCloud, X, AlertCircle } from "lucide-react";
+import { Loader2, UploadCloud, X, AlertCircle, CheckCircle2 } from "lucide-react";
 import { slugify } from "@/lib/blogSchema";
 
 const inputClass =
@@ -26,6 +26,7 @@ export default function BlogPostForm({ post }: { post?: BlogPost }) {
 
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
 
   function handleTitleChange(value: string) {
@@ -55,6 +56,7 @@ export default function BlogPostForm({ post }: { post?: BlogPost }) {
 
   async function handleSave(publishNow?: boolean) {
     setError("");
+    setSaved(false);
     if (!title.trim() || !slug.trim() || !excerpt.trim() || !content.trim()) {
       setError("Title, slug, excerpt and content are all required.");
       return;
@@ -90,10 +92,10 @@ export default function BlogPostForm({ post }: { post?: BlogPost }) {
 
       if (isEditing) {
         setPublished(payload.published);
-        router.refresh();
+        setSaved(true);
       } else {
         const data = await res.json();
-        router.push(`/admin/blog/${data.post.id}`);
+        router.push(`/admin/blog/${data.post.id}?created=1`);
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
@@ -165,6 +167,11 @@ export default function BlogPostForm({ post }: { post?: BlogPost }) {
       {error && (
         <p className="flex items-center gap-2 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-2.5">
           <AlertCircle className="h-4 w-4" /> {error}
+        </p>
+      )}
+      {saved && (
+        <p className="flex items-center gap-2 text-sm font-medium text-leaf-700 bg-leaf-500/10 border border-leaf-500/20 rounded-lg px-4 py-2.5">
+          <CheckCircle2 className="h-4 w-4" /> Saved{published ? " and published" : " as draft"}.
         </p>
       )}
 
