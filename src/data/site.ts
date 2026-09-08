@@ -26,6 +26,7 @@ export const navLinks = [
   { label: "Residential", href: "/residential" },
   { label: "Commercial", href: "/commercial" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Blog", href: "/blog" },
   { label: "Reviews", href: "/reviews" },
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -41,6 +42,7 @@ export const footerLinks = {
   ],
   company: [
     { label: "Gallery", href: "/gallery" },
+    { label: "Blog", href: "/blog" },
     { label: "Reviews", href: "/reviews" },
     { label: "About Us", href: "/about" },
     { label: "Contact Us", href: "/contact" },

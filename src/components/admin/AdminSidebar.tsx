@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { LayoutDashboard, Users, Contact, Star, Image as ImageIcon, Receipt, HardHat, Settings, ShieldCheck, LogOut, Loader2, Menu, X, ExternalLink } from "lucide-react";
+import { LayoutDashboard, Users, Contact, Star, Image as ImageIcon, Newspaper, Receipt, HardHat, Settings, ShieldCheck, LogOut, Loader2, Menu, X, ExternalLink } from "lucide-react";
 import type { PermissionKey, PermissionMap } from "@/lib/permissions";
 
 const navItems: { label: string; href: string; icon: typeof LayoutDashboard; requires: PermissionKey | null }[] = [
@@ -15,6 +15,7 @@ const navItems: { label: string; href: string; icon: typeof LayoutDashboard; req
   { label: "Invoices", href: "/admin/invoices", icon: Receipt, requires: "invoices.view" },
   { label: "Reviews", href: "/admin/reviews", icon: Star, requires: "reviews.manage" },
   { label: "Gallery", href: "/admin/gallery", icon: ImageIcon, requires: "gallery.manage" },
+  { label: "Blog", href: "/admin/blog", icon: Newspaper, requires: "blog.manage" },
   { label: "Settings", href: "/admin/settings", icon: Settings, requires: "settings.manage" },
   { label: "Admin Users", href: "/admin/users", icon: ShieldCheck, requires: "users.manage" },
 ];

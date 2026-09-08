@@ -14,6 +14,8 @@ export type PermissionKey =
   | "reviews.manage"
   | "gallery.manage"
   | "gallery.delete"
+  | "blog.manage"
+  | "blog.delete"
   | "settings.manage"
   | "users.manage";
 
@@ -59,6 +61,13 @@ export const PERMISSION_GROUPS: { label: string; keys: { key: PermissionKey; lab
     keys: [
       { key: "gallery.manage", label: "Manage" },
       { key: "gallery.delete", label: "Delete" },
+    ],
+  },
+  {
+    label: "Blog",
+    keys: [
+      { key: "blog.manage", label: "Manage" },
+      { key: "blog.delete", label: "Delete" },
     ],
   },
   { label: "Site Settings", keys: [{ key: "settings.manage", label: "Manage" }] },

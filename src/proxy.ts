@@ -24,6 +24,9 @@ function requiredPermission(pathname: string, method: string): PermissionKey | n
   if (startsWithAny("/admin/gallery", "/api/admin/gallery")) {
     return method === "DELETE" ? "gallery.delete" : "gallery.manage";
   }
+  if (startsWithAny("/admin/blog", "/api/admin/blog")) {
+    return method === "DELETE" ? "blog.delete" : "blog.manage";
+  }
   if (startsWithAny("/admin/invoices", "/api/admin/invoices")) {
     if (method === "DELETE") return "invoices.delete";
     if (method === "GET") return "invoices.view";

@@ -1,6 +1,6 @@
 import { company } from "@/data/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sunwavesolar.in";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sunwaveenergies.in";
 
 export default function StructuredData() {
   const jsonLd = {
