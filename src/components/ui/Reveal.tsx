@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-// Fades + slides a section up into place the first time it enters the
-// viewport while scrolling. Pure IntersectionObserver + CSS transition - no
-// animation library needed. Respects prefers-reduced-motion by skipping
-// straight to the visible state.
+// Fades + slides a section into place whenever it enters the viewport, and
+// fades back out when it leaves - so it can replay on the way back down.
+// Pure IntersectionObserver + CSS transition - no animation library needed.
+// Respects prefers-reduced-motion by skipping straight to the visible state.
 export default function Reveal({
   children,
   className = "",
@@ -28,12 +28,7 @@ export default function Reveal({
     }
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
+      ([entry]) => setVisible(entry.isIntersecting),
       { threshold: 0.15, rootMargin: "0px 0px -80px 0px" }
     );
     observer.observe(el);
