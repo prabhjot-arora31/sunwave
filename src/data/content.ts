@@ -120,7 +120,7 @@ export const whyChooseUs = [
   },
   {
     title: "Multi-City Service",
-    description: "Sales, installation and after-sales service across 10 cities.",
+    description: "Sales, installation and after-sales service across 15 cities.",
     icon: "MapPin",
   },
   {

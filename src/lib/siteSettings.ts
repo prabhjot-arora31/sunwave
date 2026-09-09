@@ -26,7 +26,7 @@ export const DEFAULT_SITE_SETTINGS: SiteSettingsData = {
   yearsExperience: "3",
   happyCustomers: "700+",
   mwCapacity: "3",
-  citiesServed: "10",
+  citiesServed: "15",
   loanAmount: "Up to ₹5,00,000 - ₹6,00,000",
   interestRate: "Starting at 5% p.a.",
   loanTenure: "Up to 10 years",

@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
-import { Target, Eye, Users, BadgeCheck } from "lucide-react";
+import { Target, Eye, Users, BadgeCheck, MapPin } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import CtaBanner from "@/components/ui/CtaBanner";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { company } from "@/data/site";
 import { getSiteSettings } from "@/lib/siteSettings";
+
+const otherCities = [
+  "Amravati",
+  "Akola",
+  "Chandrapur",
+  "Yavatmal",
+  "Wardha",
+  "Bhandara",
+  "Gondia",
+  "Gadchiroli",
+  "Khamgaon",
+  "Wani",
+  "Hinganghat",
+  "Ballarpur",
+  "Katol",
+  "Umred",
+];
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -71,11 +88,28 @@ export default async function AboutPage() {
                 solar EPC company serving residential, commercial and industrial
                 customers across {settings.citiesServed} cities.
               </p>
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed mb-6">
                 In just a few years, we&apos;ve installed more than {settings.mwCapacity} MW of solar capacity, helped
                 customers save crores in electricity costs, and built a reputation for
                 transparent pricing and reliable after-sales service.
               </p>
+
+              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-3">
+                Areas We Serve
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-950 text-white text-xs font-semibold px-3.5 py-2">
+                  <MapPin className="h-3.5 w-3.5" /> Nagpur (HQ)
+                </span>
+                {otherCities.map((city) => (
+                  <span
+                    key={city}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-medium px-3.5 py-2 hover:bg-sun-50 hover:text-sun-700 hover:-translate-y-0.5 transition-all"
+                  >
+                    <MapPin className="h-3.5 w-3.5 text-slate-400" /> {city}
+                  </span>
+                ))}
+              </div>
             </div>
             <dl className="grid grid-cols-2 gap-6">
               {stats.map((s) => (
