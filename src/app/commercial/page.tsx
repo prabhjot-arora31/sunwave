@@ -4,6 +4,7 @@ import PageHero from "@/components/ui/PageHero";
 import CtaBanner from "@/components/ui/CtaBanner";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Reveal from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
   title: "Commercial & Industrial Solar",
@@ -35,7 +36,7 @@ export default function CommercialPage() {
         description="Reduce your operating costs with solar solutions designed for offices, retail, factories and large industrial units."
       />
 
-      <section className="py-20 bg-white">
+      <Reveal><section className="py-20 bg-white">
         <Container className="grid lg:grid-cols-2 gap-8">
           <div className="rounded-2xl border border-slate-100 bg-slate-50/60 p-7 sm:p-8">
             <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-950 text-sun-400 mb-5">
@@ -75,9 +76,9 @@ export default function CommercialPage() {
             </ul>
           </div>
         </Container>
-      </section>
+      </section></Reveal>
 
-      <section className="py-20 bg-slate-50">
+      <Reveal><section className="py-20 bg-slate-50">
         <Container>
           <SectionHeading
             eyebrow="Process"
@@ -104,12 +105,14 @@ export default function CommercialPage() {
             ))}
           </div>
         </Container>
-      </section>
+      </section></Reveal>
 
-      <CtaBanner
-        title="Cut Your Business Electricity Costs"
-        description="Request a free energy audit and custom proposal for your business."
-      />
+      <Reveal>
+        <CtaBanner
+          title="Cut Your Business Electricity Costs"
+          description="Request a free energy audit and custom proposal for your business."
+        />
+      </Reveal>
     </>
   );
 }

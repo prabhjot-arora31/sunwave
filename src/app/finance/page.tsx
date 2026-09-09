@@ -5,6 +5,7 @@ import CtaBanner from "@/components/ui/CtaBanner";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import EmiCalculator from "@/components/finance/EmiCalculator";
+import Reveal from "@/components/ui/Reveal";
 import { getSiteSettings } from "@/lib/siteSettings";
 
 export const metadata: Metadata = {
@@ -40,7 +41,7 @@ export default async function FinancePage() {
         description="Don't let upfront cost stop you from going solar. Convert your electricity bill into an affordable EMI with our financing partners."
       />
 
-      <section className="py-20 bg-white">
+      <Reveal><section className="py-20 bg-white">
         <Container className="grid lg:grid-cols-2 gap-10 items-start">
           <div>
             <SectionHeading center={false} eyebrow="Loan Details" title="Financing Made Simple" />
@@ -80,12 +81,14 @@ export default async function FinancePage() {
 
           <EmiCalculator />
         </Container>
-      </section>
+      </section></Reveal>
 
-      <CtaBanner
-        title="Apply for Solar Financing"
-        description="Share your details and our finance team will help you get pre-approved."
-      />
+      <Reveal>
+        <CtaBanner
+          title="Apply for Solar Financing"
+          description="Share your details and our finance team will help you get pre-approved."
+        />
+      </Reveal>
     </>
   );
 }

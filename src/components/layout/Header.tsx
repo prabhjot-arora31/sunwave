@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
@@ -11,9 +11,42 @@ import { company, navGroups } from "@/data/site";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [expandedGroup, setExpandedGroup] = useState<string | null>(null);
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
+
+  // Hides the header while scrolling down past the top of the page, and
+  // brings it back the moment the user scrolls up - gives more room to
+  // content-heavy pages while keeping nav one scroll-up away.
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    lastY.current = window.scrollY;
+    let ticking = false;
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const diff = y - lastY.current;
+        if (y < 80) setHidden(false);
+        else if (diff > 4) setHidden(true);
+        else if (diff < -4) setHidden(false);
+        lastY.current = y;
+        ticking = false;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 shadow-sm">
+    <header
+      className={`sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 shadow-sm transition-transform duration-300 ease-out ${
+        hidden && !open ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       <Container className="max-w-[1400px]!">
         <div className="flex items-center justify-between gap-4 py-3.5">
           <Link href="/" className="flex items-center shrink-0" onClick={() => setOpen(false)}>

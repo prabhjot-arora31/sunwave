@@ -4,6 +4,7 @@ import PageHero from "@/components/ui/PageHero";
 import CtaBanner from "@/components/ui/CtaBanner";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Reveal from "@/components/ui/Reveal";
 import PhotoGrid from "@/components/gallery/PhotoGrid";
 import { getPublicGallery } from "@/lib/gallery";
 
@@ -25,7 +26,7 @@ export default async function GalleryPage() {
         description="Real installations from real customers - a look at the systems we've built across homes and businesses."
       />
 
-      <section className="py-20 bg-white">
+      <Reveal><section className="py-20 bg-white">
         <Container>
           <SectionHeading eyebrow="Photos" title="Completed Installations" />
           {photos.length > 0 ? (
@@ -37,9 +38,9 @@ export default async function GalleryPage() {
             </div>
           )}
         </Container>
-      </section>
+      </section></Reveal>
 
-      <section className="py-20 bg-slate-50">
+      <Reveal><section className="py-20 bg-slate-50">
         <Container>
           <SectionHeading eyebrow="Videos" title="See It In Action" />
           {videos.length > 0 ? (
@@ -57,12 +58,14 @@ export default async function GalleryPage() {
             </div>
           )}
         </Container>
-      </section>
+      </section></Reveal>
 
-      <CtaBanner
-        title="Like What You See?"
-        description="Get a free consultation and see what we can build for your property."
-      />
+      <Reveal>
+        <CtaBanner
+          title="Like What You See?"
+          description="Get a free consultation and see what we can build for your property."
+        />
+      </Reveal>
     </>
   );
 }

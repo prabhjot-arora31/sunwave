@@ -5,6 +5,7 @@ import PageHero from "@/components/ui/PageHero";
 import CtaBanner from "@/components/ui/CtaBanner";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Reveal from "@/components/ui/Reveal";
 import { subsidySteps } from "@/data/content";
 import { getSiteSettings } from "@/lib/siteSettings";
 
@@ -33,7 +34,7 @@ export default async function SubsidyPage() {
         description="Get up to ₹78,000 subsidy from the Government of India on your residential rooftop solar system."
       />
 
-      <section className="py-10 bg-white border-b border-slate-100">
+      <Reveal><section className="py-10 bg-white border-b border-slate-100">
         <Container className="flex flex-col items-center text-center gap-4">
           <Image
             src="/assets/pm_surya.png"
@@ -49,9 +50,9 @@ export default async function SubsidyPage() {
             0 Down Payment
           </span>
         </Container>
-      </section>
+      </section></Reveal>
 
-      <section className="py-20 bg-white">
+      <Reveal><section className="py-20 bg-white">
         <Container className="grid lg:grid-cols-2 gap-12">
           <div>
             <SectionHeading center={false} eyebrow="Subsidy Slabs" title="How Much Can You Save?" />
@@ -91,9 +92,9 @@ export default async function SubsidyPage() {
             </ul>
           </div>
         </Container>
-      </section>
+      </section></Reveal>
 
-      <section className="py-20 bg-slate-50">
+      <Reveal><section className="py-20 bg-slate-50">
         <Container>
           <SectionHeading
             eyebrow="Application Process"
@@ -111,12 +112,14 @@ export default async function SubsidyPage() {
             ))}
           </div>
         </Container>
-      </section>
+      </section></Reveal>
 
-      <CtaBanner
-        title="Check Your Subsidy Eligibility"
-        description="Share your electricity bill details and we'll calculate your subsidy amount for free."
-      />
+      <Reveal>
+        <CtaBanner
+          title="Check Your Subsidy Eligibility"
+          description="Share your electricity bill details and we'll calculate your subsidy amount for free."
+        />
+      </Reveal>
     </>
   );
 }

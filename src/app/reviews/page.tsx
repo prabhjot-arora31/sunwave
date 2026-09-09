@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { MessageSquareText, Star, Users } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 import ReviewForm from "@/components/forms/ReviewForm";
 import { getSiteSettings } from "@/lib/siteSettings";
 
@@ -28,7 +29,7 @@ export default async function ReviewsPage() {
         title="Share Your Experience"
         description="Already gone solar with us? We'd love to hear how it went - your review helps other homeowners considering the switch."
       />
-      <section className="py-20 bg-white">
+      <Reveal><section className="py-20 bg-white">
         <Container>
           <div className="grid lg:grid-cols-2 gap-10 items-center max-w-4xl mx-auto">
             <div className="space-y-5">
@@ -47,7 +48,7 @@ export default async function ReviewsPage() {
             </div>
           </div>
         </Container>
-      </section>
+      </section></Reveal>
     </>
   );
 }

@@ -4,6 +4,7 @@ import PageHero from "@/components/ui/PageHero";
 import CtaBanner from "@/components/ui/CtaBanner";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Reveal from "@/components/ui/Reveal";
 import { capacityGuide } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export default function ResidentialPage() {
         description="Custom-designed rooftop solar systems for independent homes, villas and apartments - sized to your family's power needs."
       />
 
-      <section className="py-20 bg-white">
+      <Reveal><section className="py-20 bg-white">
         <Container className="grid lg:grid-cols-2 gap-12 items-start">
           <div>
             <SectionHeading
@@ -76,12 +77,14 @@ export default function ResidentialPage() {
             </div>
           </div>
         </Container>
-      </section>
+      </section></Reveal>
 
-      <CtaBanner
-        title="Get a Free Quote for Your Home"
-        description="Tell us your monthly bill and we'll recommend the right system size."
-      />
+      <Reveal>
+        <CtaBanner
+          title="Get a Free Quote for Your Home"
+          description="Tell us your monthly bill and we'll recommend the right system size."
+        />
+      </Reveal>
     </>
   );
 }

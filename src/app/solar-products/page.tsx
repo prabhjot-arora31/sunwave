@@ -3,6 +3,7 @@ import PageHero from "@/components/ui/PageHero";
 import CtaBanner from "@/components/ui/CtaBanner";
 import Container from "@/components/ui/Container";
 import DynamicIcon from "@/components/ui/DynamicIcon";
+import Reveal from "@/components/ui/Reveal";
 import { productCategories } from "@/data/products";
 
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ export default function SolarProductsPage() {
         title="Solar Products"
         description="High-quality, BIS-certified solar components sourced from trusted manufacturers, built to perform for 25+ years."
       />
-      <section className="py-20 bg-white">
+      <Reveal><section className="py-20 bg-white">
         <Container className="space-y-14">
           {productCategories.map((cat) => (
             <div key={cat.category}>
@@ -49,11 +50,13 @@ export default function SolarProductsPage() {
             </div>
           ))}
         </Container>
-      </section>
-      <CtaBanner
-        title="Need Help Choosing the Right Components?"
-        description="Talk to our solar consultants for a system designed around your roof and budget."
-      />
+      </section></Reveal>
+      <Reveal>
+        <CtaBanner
+          title="Need Help Choosing the Right Components?"
+          description="Talk to our solar consultants for a system designed around your roof and budget."
+        />
+      </Reveal>
     </>
   );
 }

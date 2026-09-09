@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 import LeadForm from "@/components/forms/LeadForm";
 import { company } from "@/data/site";
 
@@ -28,7 +29,7 @@ export default function ContactPage() {
         description="Have a question or ready for a free solar consultation? Reach out and our team will respond within 24 hours."
       />
 
-      <section id="quote-form" className="py-20 bg-white scroll-mt-20">
+      <Reveal><section id="quote-form" className="py-20 bg-white scroll-mt-20">
         <Container className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 rounded-2xl bg-slate-50 border border-slate-100 p-6 sm:p-9">
             <h2 className="text-xl font-bold text-sky-950 mb-6">Send Us Your Requirement</h2>
@@ -66,7 +67,7 @@ export default function ContactPage() {
             </div>
           </div>
         </Container>
-      </section>
+      </section></Reveal>
     </>
   );
 }

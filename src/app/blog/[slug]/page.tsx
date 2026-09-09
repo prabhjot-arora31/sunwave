@@ -6,6 +6,7 @@ import { marked } from "marked";
 import { ArrowLeft } from "lucide-react";
 import Container from "@/components/ui/Container";
 import CtaBanner from "@/components/ui/CtaBanner";
+import Reveal from "@/components/ui/Reveal";
 import { getPublishedPostBySlug } from "@/lib/blog";
 import { company } from "@/data/site";
 
@@ -103,10 +104,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </Container>
       </article>
 
-      <CtaBanner
-        title="Ready to Switch to Solar?"
-        description="Get a free consultation and quote tailored to your home or business."
-      />
+      <Reveal>
+        <CtaBanner
+          title="Ready to Switch to Solar?"
+          description="Get a free consultation and quote tailored to your home or business."
+        />
+      </Reveal>
     </>
   );
 }

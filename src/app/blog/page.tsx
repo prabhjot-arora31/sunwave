@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Newspaper } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 import { getPublishedPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default async function BlogIndexPage() {
         description="Everything you need to know about going solar - subsidies, financing, system types and more."
       />
 
-      <section className="py-20 bg-white">
+      <Reveal><section className="py-20 bg-white">
         <Container>
           {posts.length === 0 ? (
             <div className="flex flex-col items-center justify-center text-center py-16 rounded-2xl bg-slate-50 border border-dashed border-slate-200">
@@ -75,7 +76,7 @@ export default async function BlogIndexPage() {
             </div>
           )}
         </Container>
-      </section>
+      </section></Reveal>
     </>
   );
 }

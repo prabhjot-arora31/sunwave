@@ -4,6 +4,7 @@ import PageHero from "@/components/ui/PageHero";
 import CtaBanner from "@/components/ui/CtaBanner";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Reveal from "@/components/ui/Reveal";
 import { company } from "@/data/site";
 import { getSiteSettings } from "@/lib/siteSettings";
 
@@ -77,7 +78,7 @@ export default async function AboutPage() {
         description={`Founded in ${company.yearFounded}, ${company.fullName} has helped thousands of homes and businesses generate their own clean power.`}
       />
 
-      <section className="py-20 bg-white">
+      <Reveal><section className="py-20 bg-white">
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
@@ -133,9 +134,9 @@ export default async function AboutPage() {
             ))}
           </div>
         </Container>
-      </section>
+      </section></Reveal>
 
-      <section className="py-20 bg-slate-50">
+      <Reveal><section className="py-20 bg-slate-50">
         <Container>
           <SectionHeading eyebrow="Credentials" title="Certifications & Accreditations" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -150,9 +151,9 @@ export default async function AboutPage() {
             ))}
           </div>
         </Container>
-      </section>
+      </section></Reveal>
 
-      <section className="py-20 bg-white">
+      <Reveal><section className="py-20 bg-white">
         <Container>
           <SectionHeading eyebrow="Our Team" title="Meet the People Behind Sun Wave" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -167,9 +168,9 @@ export default async function AboutPage() {
             ))}
           </div>
         </Container>
-      </section>
+      </section></Reveal>
 
-      <CtaBanner />
+      <Reveal><CtaBanner /></Reveal>
     </>
   );
 }
